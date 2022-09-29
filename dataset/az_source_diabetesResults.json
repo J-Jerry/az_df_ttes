@@ -1,0 +1,63 @@
+{
+	"name": "az_source_diabetesResults",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "az_sql_workshop",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Pregnancies",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Glucose",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BloodPressure",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SkinThickness",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Insuline",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BMI",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "DiabetesPedigreeFunction",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Age",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Outcome",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "diabetes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

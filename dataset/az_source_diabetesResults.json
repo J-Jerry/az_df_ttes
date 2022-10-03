@@ -10,60 +10,53 @@
 		"schema": [
 			{
 				"name": "Pregnancies",
-				"type": "decimal",
-				"precision": 28,
-				"scale": 0
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "Glucose",
-				"type": "decimal",
-				"precision": 28,
-				"scale": 0
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "BloodPressure",
-				"type": "decimal",
-				"precision": 28,
-				"scale": 0
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "SkinThickness",
-				"type": "decimal",
-				"precision": 28,
-				"scale": 0
+				"type": "int",
+				"precision": 10
 			},
 			{
-				"name": "Insulin",
-				"type": "decimal",
-				"precision": 28,
-				"scale": 0
+				"name": "Insuline",
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "BMI",
-				"type": "real",
-				"precision": 7
+				"type": "float",
+				"precision": 15
 			},
 			{
 				"name": "DiabetesPedigreeFunction",
-				"type": "real",
-				"precision": 7
+				"type": "float",
+				"precision": 15
 			},
 			{
 				"name": "Age",
-				"type": "decimal",
-				"precision": 28,
-				"scale": 0
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "Outcome",
-				"type": "decimal",
-				"precision": 28,
-				"scale": 0
+				"type": "int",
+				"precision": 10
 			}
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "diabetesFormated"
+			"table": "diabetes"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

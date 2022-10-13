@@ -1,0 +1,9 @@
+{
+	"name": "az-df-lwn",
+	"properties": {
+		"globalConfigurations": {
+			"PipelineBillingEnabled": "true"
+		}
+	},
+	"location": "eastus2"
+}

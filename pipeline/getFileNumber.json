@@ -1,0 +1,107 @@
+{
+	"name": "getFileNumber",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get Metadata 1",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "mainPath",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"childItems"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata 1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "FilesCount",
+					"value": {
+						"value": "@string(length(activity('Get Metadata 1').output.childItems))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata 1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(activity('Get Metadata 1').output.itemType, 'File')\r\n",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "FolderNumber",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": []
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "FileNumber",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "TotalFiles",
+								"value": ""
+							}
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"FilesCount": {
+				"type": "String"
+			},
+			"TotalFiles": {
+				"type": "String"
+			},
+			"TotalFolder": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}

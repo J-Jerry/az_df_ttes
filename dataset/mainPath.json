@@ -1,5 +1,5 @@
 {
-	"name": "az_adls_diabetesResults",
+	"name": "mainPath",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "az_adls_azureworkshop",
@@ -10,15 +10,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "@concat( 'diabetes_', substring(utcnow(),0,10), '.csv' )",
 				"fileSystem": "datasets"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }
